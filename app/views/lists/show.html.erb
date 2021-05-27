@@ -1,10 +1,18 @@
-<h1> <%= @list.name %></h1>
-
-<% @movies.each do |movie| %>
-  <p> <%= movie.title %> <%= movie.rating %> </p>
-  <% bookmark = Bookmark.find_by(movie: movie, list: @list) %>
-  <p> <%= link_to 'delete', bookmark_path(bookmark), method: :delete, data: { confirm: "Are you sure you want to delete #{movie.title} from #{@list.name}"} %> </p>
-<% end %>
-
-<p> <%= link_to 'Add movie', new_list_bookmark_path(@list) %> </p>
-<p> <%= link_to 'Go back', lists_path %> </p>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+      <h1> <%= @list.name %></h1>
+      <% @movies.each do |movie| %>
+        <% bookmark = Bookmark.find_by(movie: movie, list: @list) %>
+        <%= movie.title %> <%= movie.rating %>
+          <p><%= link_to bookmark_path(bookmark), method: :delete,
+          data:{ confirm: "Are you sure you want to delete #{movie.title} from the #{@list.name} list"} do %>
+          <i class="fas fa-trash"></i>
+          <% end %>
+        </p>
+      <% end %>
+      <p> <%= link_to 'Add movie', new_list_bookmark_path(@list), class: 'btn btn-primary' %> </p>
+      <p> <%= link_to 'Go back', lists_path, class: 'btn btn-primary'%> </p>
+    </div>
+  </div>
+</div>

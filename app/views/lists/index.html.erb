@@ -1,6 +1,16 @@
-<h1> Here are all your movie lists: </h1>
-<% @lists.each do |list| %>
-<p> <%= link_to list.name, list_path(list) %> </p>
-<% end %>
-<%= link_to 'Add a new list', new_list_path %> </p>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+      <h1> Here are all your movie lists: </h1>
+      <ul class="list-group">
+      <% @lists.each do |list| %>
+      <li class="list-group-item">
+      <%= link_to list.name, list_path(list) %>
+      </li>
+      <% end %>
+      </ul>
+      <%= link_to 'Add a new list', new_list_path, class: 'btn btn-primary' %> </p>
+    </div>
+  </div>
+</div>
 
