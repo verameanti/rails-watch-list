@@ -1,0 +1,7 @@
+<h1>Add a movie to this list:</h1>
+<%= simple_form_for [@list, @bookmark] do |b| %>
+  <%= b.input :comment %>
+  <%= b.association :movie %>
+  <%= b.submit %>
+<% end %>
+<%= link_to 'Go back', lists_path %> </p>
