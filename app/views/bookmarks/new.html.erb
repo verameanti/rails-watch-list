@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-sm-offset-1">
-      <h1>Add a movie to this list:</h1>
+      <h1>Add a movie to your <strong> <%= @list.name %> </strong> list:</h1>
       <%= simple_form_for [@list, @bookmark] do |b| %>
         <%= b.input :comment %>
         <%= b.association :movie %>
