@@ -1,12 +1,19 @@
-<div class="container">
+<div class="navbar-lewagon">
+  <%= image_tag "popcorn_logo.png", class: 'avatar' %>
+  <%= link_to 'Add a new list', new_list_path, class: 'btn btn-primary' %>
+</div>
+
+<div class="container py-5">
   <div class="row">
-    <div class="col-xs-12 col-sm-10 col-sm-offset-1"> -->
-      <h1>Add a new list:</h1>
-      <%= simple_form_for(@list) do |l| %>
+    <div class="col-12 col-md-6 offset-lg-3">
+        <div class="bg-white rounded p-3 shadow">
+          <h3>Add a new list</h3>
+          <%= simple_form_for(@list) do |l| %>
         <%= l.input :name %>
         <%= l.input :photo, as: :file %>
-        <%= l.submit class: 'btn btn-primary' %>
+        <%= l.submit class: 'btn btn-flat' %>
       <% end %>
+        </div>
       <%= link_to 'Go back', lists_path, class: 'btn btn-primary' %> </p>
     </div>
   </div>
