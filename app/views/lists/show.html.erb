@@ -2,6 +2,9 @@
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-sm-offset-1">
       <h1> <%= @list.name %></h1>
+      <% if @list.photo.attached? %>
+      <%= cl_image_tag @list.photo.key, height: 300, width: 400, crop: :fill  %>
+      <% end %>
       <% @movies.each do |movie| %>
         <% bookmark = Bookmark.find_by(movie: movie, list: @list) %>
         <%= movie.title %> <%= movie.rating %>
@@ -16,3 +19,5 @@
     </div>
   </div>
 </div>
+
+

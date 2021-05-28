@@ -4,6 +4,7 @@
       <h1>Add a new list:</h1>
       <%= simple_form_for(@list) do |l| %>
         <%= l.input :name %>
+        <%= l.input :photo, as: :file %>
         <%= l.submit class: 'btn btn-primary' %>
       <% end %>
       <%= link_to 'Go back', lists_path, class: 'btn btn-primary' %> </p>
